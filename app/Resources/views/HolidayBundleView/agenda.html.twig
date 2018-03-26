@@ -1,0 +1,297 @@
+{# empty Twig template #}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}HolidayManagement{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset ('css/agenda.css')}}">
+        {% endblock %}
+         {% block javascripts %}        
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock %}
+</head>
+<main>
+    
+		<div class="navbar-collapse collapse pull-right" id="2ndHeader">
+                   
+			<div class="headerNav2">
+				<nav class="menu">
+				
+					<ul class="ulMenu">
+						<li>
+							<strong>Welcome {{employee.nom}} {{employee.prenom}}</strong>
+						</li>
+						<li>
+							<strong>Role:SuperAdmin</strong>
+							<ul>
+								<li><a href="#">Create Employee</a></li>
+								<li><a href="holidayManagement.html">Holiday Management</a></li>
+								<li><a href="#">Reporting</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="http://holidaymanagement.localhost/connexion">LogOut</a>							
+						</li>
+						<li>
+							<a href="#">Change Password</a>							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="container inforLeave">
+                 
+{%for cle,objHoliday in holiday%}       
+       <div class="holiday normal">
+				<div class="typeNumber">
+					<div class="typeHoliday">{{objHoliday.HolidayType.type}}</div>
+					<div class="numberHoliday">{{objHoliday.number}}</div>
+				</div>
+				<div class="valid">
+					<i> Valid from {{objHoliday.Valide.valideFrom|date("m/d/Y H:i", false)}} to 
+                                        {{objHoliday.Valide.valideTo|date("m/d/Y H:i", false)}}</i>
+				</div>
+			</div>
+{%endfor%}
+			{#<div class="holiday normal ">
+				<div class="typeNumber">
+					<div class="typeHoliday">Normal holidays </div>
+					<div class="numberHoliday">20 days</div>
+				</div>
+				<div class="valid">
+					<i> Valid from 01/01/2018 to 31/12/2018</i>
+				</div>
+			</div>#}
+			{#<div class="holiday recup">
+				<div class="typeNumber">
+					<div class="typeHoliday">Recup Holidays </div>
+					<div class="numberHoliday">2 days</div>
+				</div>
+				<div class="valid">
+					<i> 01 day- Valid from 01/01/2018 to 31/12/2018</i><br>
+					<i> 01 day- Valid from 11/11/2018 to 31/12/2018</i>
+				</div>
+			</div>
+			<div class="holiday previous">
+				<div class="typeNumber">
+					<div class="typeHoliday">Holidays previous year </div>
+					<div class="numberHoliday">5 days</div>
+				</div>
+				<div class="valid">
+					<i> Valid from 01/01/2018 to 31/12/2018</i>
+				</div>
+			</div>
+			<div class="holiday extra">
+				<div class="typeNumber">
+					<div class="typeHoliday">Extra Holidays</div>
+					<div class="numberHoliday">2 days</div>
+				</div>
+				<div class="valid">
+					<i>01 day Valid from 01/04/2018 to 31/12/2018</i><br>
+					<i>01 day Valid from 01/06/2018 to 31/12/2018</i>
+				</div>
+			</div>
+			
+			<div class="holiday extra">#}
+			<div class="typeNumber">
+                            <a class="button btn btn-lg btn-primary btn-block btn-signin" type="button" href="http://holidaymanagement.localhost/Formulaires/HolidayRequest"> Holiday Request</a>
+					
+					
+				</div>
+				<div class="valid">
+					
+				</div>
+				
+			</div>
+		</div>
+
+		{#<div class="container boxAgenda pull-left">
+			<div class="top">
+				<div class="week-title">
+					<i class="fa fa-chevron-left fa-2x done"></i>
+					<h4 class="font-weight-lighter">Feb 5-18</h4>
+					<i class="fa fa-chevron-right fa-2x"></i>
+					<h3 class="jumper font-weight-lighter">today</h3>
+				</div>
+				<div class="week-days">
+					<div class="day-wrapper">
+						<ul class="day-list">
+							<li class="day today">
+								<p>Mon</p>
+								<h4 class="font-weight-lighter">5</h4>
+							</li>
+							<li class="day">
+								<p>Tue</p>
+								<h4 class="font-weight-lighter">6</h4>
+							</li>
+							<li class="day">
+								<p>Wed</p>
+								<h4 class="font-weight-lighter">7</h4>
+							</li>
+							<li class="day">
+								<p>Thu</p>
+								<h4 class="font-weight-lighter">8</h4>
+							</li>
+							<li class="day">
+								<p>Fri</p>
+								<h4 class="font-weight-lighter">9</h4>
+							</li>
+							<li class="day">
+								<p>Sat</p>
+								<h4 class="font-weight-lighter">10</h4>
+							</li>
+							<li class="day">
+								<p>Sun</p>
+								<h4 class="font-weight-lighter">11</h4>
+							</li>
+							<li class="day">
+								<p>Mon</p>
+								<h4 class="font-weight-lighter">12</h4>
+							</li>
+							<li class="day">
+								<p>Tue</p>
+								<h4 class="font-weight-lighter">13</h4>
+							</li>
+							<li class="day">
+								<p>Wed</p>
+								<h4 class="font-weight-lighter">14</h4>
+							</li>
+							<li class="day">
+								<p>Thu</p>
+								<h4 class="font-weight-lighter">15</h4>
+							</li>
+							<li class="day">
+								<p>Fri</p>
+								<h4 class="font-weight-lighter">16</h4>
+							</li>
+							<li class="day">
+								<p>Sat</p>
+								<h4 class="font-weight-lighter">17</h4>
+							</li>
+							<li class="day">
+								<p>Sun</p>
+								<h4 class="font-weight-lighter">18</h4>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="channel-title-list">
+				<li class="channel-title photo">
+					<h4  >00</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >01</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >02</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >03</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >04</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >05</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >06</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >07</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >08</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >09</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >10</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >11</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >12</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >13</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >14</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >15</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >16</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >17</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >18</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >19</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >20</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >21</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >22</h4>
+				</li>
+				<li class="channel-title photo">
+					<h4  >23</h4>
+				</li>
+	
+			</ul>
+
+			<div class="schedule-wrapper">
+				<div class="schedule-list">
+					<div class="schedule">
+						<div class="channel">
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+							<div class="course photo"></div>
+						</div>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>#}
+	</main>
+</html>

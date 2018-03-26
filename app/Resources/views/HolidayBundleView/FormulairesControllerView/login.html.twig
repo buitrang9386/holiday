@@ -1,0 +1,56 @@
+{# empty Twig template #}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}HolidayManagement{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset ('css/main.css')}}">
+        {% endblock %}
+         {% block javascripts %}           
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock %}
+</head>
+<main>
+
+<div class="container login">
+    <div class="card card-container">
+        <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+        {#<img id="profile-img" class="profile-img-card" src="./Asset/logo-ebp.jpg" />#}
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" action="{{path('connexion')}}" method="post">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="email" name="_username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="password" name="_password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div id="remember" class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+           
+        </form><!-- /form -->
+        <a href="http://holidaymanagement.localhost/inscription" class="forgot-password">
+             Create a new account?
+        </a>
+    <br />
+
+    </div>
+</div>
+            
+            
+  {%if errors %}         
+    {%dump(errors)%}
+    {%dump(lastEmail)%}
+    Login ou mot de passe incorrectes
+  {% endif %}
+
+
+ </main>
+</html>       
+        
+	

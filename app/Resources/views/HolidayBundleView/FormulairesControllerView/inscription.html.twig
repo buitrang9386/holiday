@@ -1,0 +1,13 @@
+{# empty Twig template #}
+<h1>Inscription Page</h1>
+
+
+<h1>Form from formulaire</h1>
+{{form_start(formulaire, {'action': path('inscription'), 'method':'POST'})}}
+    {{form_row(formulaire.login)}}
+    {{form_row(formulaire.passwordOrginal.first)}}
+    {{form_row(formulaire.passwordOrginal.second)}}
+    <button type="submit">S'inscrire</button>
+{{form_end(formulaire)}}
+
+

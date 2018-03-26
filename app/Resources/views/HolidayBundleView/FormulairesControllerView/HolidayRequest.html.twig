@@ -1,0 +1,153 @@
+{# empty Twig template #}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}HolidayManagement{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset ('css/newRequest.css')}}">
+        {% endblock %}
+         {% block javascripts %}           
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock %}
+</head>
+
+<body>
+	<header>
+		<img src="./Asset/hp1.jpg" alt="">
+
+	</header>
+	<main>
+		<div class="navbar-collapse collapse pull-right" id="2ndHeader">
+			<div class="headerNav2">
+				<nav class="menu">
+				s
+					<ul class="ulMenu">
+						<li><a href="./agenda.html">Welcome [Name]</a>
+							
+						</li>
+						<li>
+							<strong>Role:SuperAdmin</strong>
+							<ul>
+								<li><a href="createEmployee.html">Create Employee</a></li>
+								<li><a href="holidayManagement.html">Holiday Management</a></li>
+								<li><a href="reporting.html">Reporting</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="index.html">LogOut</a>
+		
+						</li>
+						<li>
+							<a href="#">Change Password</a>							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="newRequest">
+			
+			<div class="container requestForm pull-right">
+                           
+				<h3>Add Leave days</h3>
+				<br>
+                                 {{form (monFormulaireRequest)}}
+				{#<form class="form-horizontal" action="">
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="holidayType">Holiday Type:</label>
+						<div class="col-sm-3">
+							<select class="col-sm-10" name="projectType" id="holidayType">
+      						<option value=disable>Select type holiday</option>
+       						<option value="">Normal holiday</option>
+       	       				<option value="">Recup holidat</option>
+       						<option value="">Holidays previous year</option>
+       						<option value="">Extra holiday</option>
+       	       				<option value="">Unpaid holiday</option>
+       						<option value="">Sick leave</option>
+       						<option value="">Other Holiday</option>       	
+       					</select>
+       					<br>
+       					<a href=""> <span class="glyphicon glyphicon-plus"></span><i>Add a new holiday type</i></a>
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="valideFrom">Leave days:</label>
+						<div class="col-sm-3">
+							<input type="number" class="form-control" id="number" name="number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="valideFrom">Valided from:</label>
+						<div class="col-sm-3">
+							<input type="date" class="form-control" id="valideFrom" name="valideFrom">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="valideTo">Valided to:</label>
+						<div class="col-sm-3">
+							<input type="date" class="form-control" id="valideTo" name="valideTo">
+						</div>
+					</div>
+					<script>
+						$('#valideFrom').change(function() {
+							$('#valideTo').attr('min', $('#valideFrom').val());
+						});
+					</script>
+
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="noteRequest">Description:</label>
+						<div class="col-sm-3">
+							<textarea class="form-control" rows="4" cols="50" name="noteRequest" id="noteRequest">
+Enter note here...
+</textarea>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3" for="approver">To Whom:</label>
+						<div class="col-sm-3">
+							<select class="col-sm-10" name="approver" id="approver">
+      						<option value selected disabled>Select</option>
+       						<option value ="">All employees</option>
+       	       				<option value="B">All Managers</option>
+       						<option value="C">All Seniors</option> 
+       						<option value="C">All Juniors</option>      					      	
+       					</select>
+       					<br>
+       					<a href=""><span class="glyphicon glyphicon-search"></span><i>Employee search</i></a>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-10">
+							<a type="button" class="btn btn-default">ADD</a>
+						</div>
+					</div>
+					<div style="display: none" id='message' class="alert alert-success">
+						<strong>Success!</strong> Leave days have been added successfully.
+					</div>
+
+					<script>
+						$('.btn').click(function() {
+							$('#message').toggle();
+							console.log('click');
+						});
+					</script>
+				</form>#}
+			</div>
+
+		</div>
+	</main>
+
+</body>
+
+</html>

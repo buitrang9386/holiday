@@ -1,0 +1,425 @@
+html {
+	width: 100%;
+	min-height: 100%;
+	background: #fff;
+	font: 300 100% "proxima-nova", Helvetica, Arial, sans-serif;
+	color: #046ba0;
+	height: 100%;
+	background-repeat: no-repeat;
+}
+
+header {
+	background-image: url(../Asset/hp1.jpg);
+}
+
+img {
+	height: 40px;
+}
+
+.inforLeave {
+	width: 400px;
+	height: 500px;
+	margin: 0 auto 30px;
+	background: white;
+        position: fixed;
+	right: 800px;
+	top: 200px;
+/*	border: 2px solid #ccc;*/
+}
+
+.holiday {
+	/*	width: 500px;*/
+	height: 80px;
+/*	margin: 2px;*/
+	background: white;
+	border: 2px solid #ccc;
+/*	padding-top: 15px;*/
+	font-size: 12px;
+}
+
+.typeNumber {
+	display: flex;
+	justify-content: space-between;
+}
+
+.numberHoliday {
+	width: 20%;
+	font-size: 14px;
+}
+
+.typeHoliday {
+	width: 60%;
+}
+
+.valid {
+	padding-top: 10px;
+	color: #938e8e;
+}
+/*Menu*/
+/*
+.menu {
+	width: 800px;
+}
+*/
+
+.ulMenu {
+	list-style-type: none;
+}
+
+.ulMenu,
+.ulmenu>li {
+	margin: 0;
+	padding: 0;
+}
+
+.ulMenu li {
+	position: relative;
+	/* Obligatoire à cause de l'enfant en position absolute */
+	display: inline-block;
+	width: 160px;
+	height: 50px;
+	z-index: 99999;
+	
+}
+
+nav>ul>li:first-child {
+	border-radius: 10px 0 0 0;
+}
+
+nav>ul>li:last-child {
+	border-radius: 0 10px 0 0;
+}
+
+nav li {
+	background-color: #99CCFF;
+	transition: all 1.5s;
+}
+
+nav li:hover {
+	background-color: #FFBF00;
+}
+
+nav strong {
+	display: block;
+	height: 100%;
+	padding: 15px 0 0 0;
+	margin: 0;
+	text-align: center;
+	color: #000;
+}
+
+nav li>ul {
+	/* display: none; */
+	opacity: 0;
+	/* Invisible sans le survol */
+	position: absolute;
+	/* Sort du flux */
+	top: 50px;
+	/* Juste en dessous de la hauteur du nav */
+	left: 0;
+	width: 100%;
+	transition: all 1.5s;
+	padding-left: 0; 
+	margin-left: 0; 
+}
+
+nav li:hover>ul {
+	/* Magick happens here */
+	/* display: block; */
+	opacity: 1;
+}
+
+a {
+	display: block;
+	height: 100%;
+	padding: 15px 0 0 0;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	color: #000;
+	transition: all 1.5s;
+}
+
+a:hover {
+	background-color: #FFBF00;
+}
+
+li ul li:last-child {
+	border-radius: 0 0 10px 10px;
+}
+.headerNav {
+	width: 40%;
+	text-align: right;
+	z-index:99999; 
+}
+
+
+/*Calendar*/
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.boxAgenda {
+	top: -5px; 
+	width: 770px;
+	height: auto;
+/*	margin: 0 auto 30px;*/
+	background: white;
+	position: relative;
+}
+
+
+
+/*Week Title*/
+
+.top {
+	top: 40px; 
+	height: 100px;
+	position: fixed;
+	z-index: 12;
+	background: white;
+}
+
+.week-title {
+	width: 300px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.week-title i {
+	color: #b8b8b8;
+/*	padding: 10px 20px;*/
+	cursor: pointer;
+}
+
+.week-title i:first-child {
+	opacity: .5;
+}
+
+.week-title i,
+.week-title h4 {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+/*Week Days*/
+
+.week-days {
+	width: 750px;
+	background: #686868;
+	border-bottom: 4px solid white;
+	height: 53px;
+	position: relative;
+	z-index: 11;
+	-webkit-box-shadow: 0 8px 6px -6px rgba(100, 100, 100, .6);
+	-moz-box-shadow: 0 8px 6px -6px rgba(100, 100, 100, .6);
+	box-shadow: 0 8px 6px -6px rgba(100, 100, 100, .6);
+}
+
+.jumper {
+	color: #686868;
+	opacity: 0;
+	cursor: pointer;
+/*	margin: 0 0 30px 0;*/
+}
+
+.day-list {
+	margin: 0;
+	width: 1579px;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.day-wrapper {
+	width: 768px;
+	height: 47px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.day {
+	display: inline-block;
+	list-style: none;
+	text-align: center;
+	color: white;
+	border: 1px solid white;
+	width: 111px;
+/*	padding: 15px 0;*/
+	position: relative;
+	bottom: 8px;
+	text-transform: uppercase;
+}
+
+.day p,
+.day h4 {
+	margin: 0;
+}
+
+.day:nth-child(n+2) {
+	margin-left: -5px;
+}
+
+.day.today {
+	background: white;
+	color: #686868;
+	padding-top: 15px;
+	border-top: 4px solid #e8e8e8;
+}
+
+
+/*Channel Titles*/
+
+.channel-title-list {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	top: 100px;
+}
+
+.channel-title {
+	width: 145px;
+/*	padding: 10px 20px 5px;*/
+	text-align: center;
+	list-style: none;
+/*	text-transform: uppercase;*/
+	color: white;
+	border-bottom: 0.35px solid white;
+	display: table;
+}
+
+.channel-title h4 {
+/*	margin: 0px;*/
+	display: table-cell;
+	vertical-align: middle;
+	height: 26px;
+	font-size: 12px; 
+}
+
+.channel-title.photo {
+	background: #123a4f;
+/*	height: 15px;*/
+}
+
+
+
+/*Schedule*/
+
+.schedule-wrapper {
+	position: absolute;
+	top: 100px;
+	left: 145px;
+	width: 624px;
+	height: 1000px;
+	overflow: hidden;
+}
+
+.schedule-list {
+	background: #e8e8e8;
+	width: 1000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.schedule {
+	background: #e8e8e8;
+	border-right: 1px solid white;
+	width: 624px;
+/*	height: 1000px;*/
+	display: inline-block;
+}
+
+
+/*Channels*/
+
+.channel {
+	border-bottom: 3px solid white;
+	position: relative;
+}
+
+.course.photo {
+	background: #0d5275;
+	border-bottom: 1px solid white;
+	margin-right: 0;
+}
+
+.course.art {
+	background: #469190;
+	border-bottom: 1px solid white;
+	margin-right: 0;
+}
+
+.course.music {
+	background: #86c4a5;
+	border-bottom: 1px solid white;
+	margin-right: 0;
+}
+
+.course.maker {
+	background: #73b8d5;
+	border-bottom: 1px solid white;
+	margin-right: 0;
+}
+
+.course.business {
+	background: #8d9f3b;
+	border-bottom: 1px solid white;
+	margin-right: 0;
+}
+
+.course.other {
+	background: #656c4a;
+	border-bottom: 1px solid white;
+	margin-right: 0;
+}
+
+.course {
+	width: 620px;
+	height: 26px;
+	clear: both;
+}
+
+.bottom {
+	border-bottom: 1px solid white;
+}
+
+.bottom-big {
+	border-bottom: 3px solid white;
+}
+
+/*logo*/
+.headerNav2 {
+	text-align: right; 
+}
+#2ndHeader{
+	display: flex; 
+/*	flex-direction: row; */
+	justify-content: space-between; 
+	 
+}
+.logoHeader{
+	width: 40%;	
+	
+}
+/*Button*/
+button {
+	margin:5px; 
+	width: 100px;
+	height: 30px;
+}
+button a{
+	margin: 0; 
+	padding: 0;
+	font-size: 10px; 
+}
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="HolidayBundle\Repository\ValideRepository" name="HolidayBundle\Entity\Valide">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="valideFrom" type="datetime" column="valideFrom" length="255" nullable="false"/>
+    <field name="valideTo" type="datetime" column="valideTo" length="255" nullable="false"/>  
+     <!--note: 1 user many holidayStock--> 
+     <one-to-many target-entity="HolidayBundle\Entity\HolidayStock" field="holidayStocks" mapped-by="valide">        
+    </one-to-many>    
+  
+      
+  </entity>
+</doctrine-mapping>

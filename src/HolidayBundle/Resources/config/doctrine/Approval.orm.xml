@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="HolidayBundle\Repository\ApprovalRepository" name="HolidayBundle\Entity\Approval">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="effectiveDate" type="datetime" column="effectiveDate" length="255" nullable="false"/>
+      <field name="expiryDate" type="datetime" column="expiryDate" length="255" nullable="false"/>
+    <field name="modifyBy" type="string" column="modifyBy" length="255" nullable="true"/>   
+    <field name="modifyOn" type="datetime" column="modifyOn" length="255" nullable="true"/>          
+  
+       
+     <many-to-one target-entity="HolidayBundle\Entity\User" field="userApprover" inversed-by="approvalsApprover">        
+    </many-to-one> 
+      <many-to-one target-entity="HolidayBundle\Entity\User" field="userApprovee" inversed-by="approvalsApprovee">        
+    </many-to-one>            
+  </entity>
+</doctrine-mapping>

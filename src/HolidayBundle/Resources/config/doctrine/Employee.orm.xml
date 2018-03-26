@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="HolidayBundle\Repository\EmployeeRepository" name="HolidayBundle\Entity\Employee">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="255" nullable="false"/>
+    <field name="prenom" type="string" column="prenom" length="255" nullable="false"/>   
+    <field name="code" type="integer" column="code" length="255" nullable="false"/>     
+    <field name="adresse" type="string" column="adresse" length="255" nullable="true"/> 
+    <field name="numTel" type="string" column="numTel" length="255" nullable="true"/> 
+    <field name="note" type="string" column="note" length="255" nullable="true"/>  
+    <field name="debutContrat" type="datetime" column="debutContrat" length="255" nullable="true"/>  
+    <field name="finContrat" type="datetime" column="finContrat" length="255" nullable="true"/>      
+  
+    <many-to-one target-entity="HolidayBundle\Entity\Status" field="status" inversed-by="employees">        
+    </many-to-one>
+    
+     <many-to-one target-entity="HolidayBundle\Entity\JobLevel" field="jobLevel" inversed-by="employees">        
+    </many-to-one>
+    
+    <many-to-one target-entity="HolidayBundle\Entity\Department" field="department" inversed-by="employees">        
+    </many-to-one>
+    
+     <one-to-one target-entity="HolidayBundle\Entity\User" field="user">  </one-to-one>   
+      
+  </entity>
+</doctrine-mapping>

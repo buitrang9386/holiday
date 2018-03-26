@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="holiday_homepage" path="/">
+        <default key="_controller">HolidayBundle:Default:index</default>
+    </route>
+    
+    
+    <route id="agenda" path="/agenda">
+        <default key="_controller">HolidayBundle:Holiday:agenda</default>
+    </route>
+    <route id="HolidayRequest" path="/Formulaires/HolidayRequest">
+        <default key="_controller">HolidayBundle:Formulaires:HolidayRequest</default>
+    </route>    
+    
+   
+       <route id="traiter_form_holidayRequest" path="/Formulaires/traiterFormHolidayRequest">
+        <default key="_controller">HolidayBundle:Formulaires:traiterFormHolidayRequest</default>
+    </route>
+    
+    <route id="inscription" path="/inscription">
+        <default key="_controller">HolidayBundle:Authentification:inscription</default>
+    </route>
+    
+    <route id="connexion" path="/connexion">
+        <default key="_controller">HolidayBundle:Authentification:connexion</default>
+    </route>
+    
+</routes>
